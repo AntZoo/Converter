@@ -30,7 +30,7 @@ namespace Converter
                     continue;
                 }
 
-                Regex re = new Regex(@"(\d*)[\s\.-]*(.*)");
+                Regex re = new Regex(@"([\d\.]*)[\s-]*(.*)");
                 Match m = re.Match(source);
 
                 string digit = "";
