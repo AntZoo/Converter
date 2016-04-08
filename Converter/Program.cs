@@ -6,20 +6,24 @@ namespace Converter
 {
     class Program
     {
+        static readonly string[] inArray = { "inch", "inches", "''", "\"", "in", "ins" };
+        static readonly string[] cmArray = { "centimeter", "centimeters", "cm", "cms" };
+
         static void Main(string[] args)
         {
-            string[] inArray = { "inch", "inches", "''", "\"", "in", "ins" };
-            string[] cmArray = { "centimeter", "centimeters", "cm", "cms" };
-
             Console.WriteLine("Welcome to Unit Converter 3000.");
+
             string source;
+
+            Regex re = new Regex(@"([\d\.]*)[\s-]*(.*)");
+
             while (true)
             {
                 Console.WriteLine("\n===============================\nPlease input a number either in centimeters or inches\nand receive the converted value right away.\nNote that you should input your number with the unit.");
                 Console.Write("> ");
                 source = Console.ReadLine();
 
-                if (source.Length < 1 || source == "exit") { break; }
+                if (string.IsNullOrEmpty(source) || source == "exit" || source == "q") { break; }
 
                 if (source == "help" || source == "?")
                 {
@@ -27,11 +31,11 @@ namespace Converter
                     continue;
                 }
 
-                Regex re = new Regex(@"([\d\.]*)[\s-]*(.*)");
-                Match m = re.Match(source);
-
                 string digit = "";
                 string units = "";
+                source = source.Trim();
+
+                Match m = re.Match(source);
 
                 if (m.Success)
                 {
