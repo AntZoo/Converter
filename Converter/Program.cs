@@ -54,10 +54,10 @@ namespace Converter
                 Console.WriteLine("-------------------------------\n");
 
                 if (inArray.Any(units.Contains)) {
-                    Console.WriteLine(digit + " in =  " + Math.Round(Convert.ToDouble(digit) * 2.54, 3) + " cm");
+                    Console.WriteLine($"{digit} in = {Math.Round(Convert.ToDouble(digit) * 2.54, 3)} cm");
                 } else if (cmArray.Any(units.Contains))
                 {
-                    Console.WriteLine(digit + " cm =  " + Math.Round(Convert.ToDouble(digit) * 0.393701, 3) + " in");
+                    Console.WriteLine($"{digit} cm =  {Math.Round(Convert.ToDouble(digit) * 0.393701, 3)} in");
                 }
             }
         }
