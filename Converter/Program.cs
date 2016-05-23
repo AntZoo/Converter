@@ -11,7 +11,7 @@ namespace Converter
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Unit Converter 3000.");
+            Console.WriteLine("Welcome to Convert-o-matic.");
 
             string source;
 
@@ -43,11 +43,11 @@ namespace Converter
                     units = m.Groups[2].Value;
                 }
 
-                if (digit.Length < 1 || units.Length < 1)
+                if (digit.Length < 1 || (units.Length < 1 || (!inArray.Any(units.Contains) && !cmArray.Any(units.Contains))))
                 {
                     Console.WriteLine("Your input is false.");
                     if (digit.Length < 1) { Console.WriteLine("You haven't sent a number."); }
-                    if (units.Length < 1) { Console.WriteLine("You haven't defined a unit."); }
+                    if (units.Length < 1 || (!inArray.Any(units.Contains) && !cmArray.Any(units.Contains))) { Console.WriteLine("You haven't defined a unit or you defined it wrongly."); }
                     continue;
                 }
 
