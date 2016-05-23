@@ -4,12 +4,12 @@ using System.Text.RegularExpressions;
 
 namespace Converter
 {
-    class Program
+    class Converter
     {
         static readonly string[] inArray = { "inch", "inches", "''", "\"", "in", "ins" };
         static readonly string[] cmArray = { "centimeter", "centimeters", "cm", "cms" };
 
-        static void Main(string[] args)
+        public static void ConverterRun()
         {
             Console.WriteLine("Welcome to Convert-o-matic.");
 
